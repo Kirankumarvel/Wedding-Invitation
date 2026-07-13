@@ -1,49 +1,717 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation | Vinayagam & Roja | 23 August 2026</title>
-<meta name="description" content="With the blessings of Lord Murugan, Sn. M. Srinivasan & Smt. S. Amaravathi Srinivasan invite you to the wedding of S. Vinayagam and D. Roja on 23 August 2026 at Arulmigu Sri Subramaniya Swamy Temple, Tiruttani.">
-<link href="https://fonts.googleapis.com/css?family=Arvo|Dancing+Script&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Wedding Invitation | Vinayagam & Roja | 23 Aug 2026</title>
+    <meta name="description" content="With the divine grace of Lord Murugan, we cordially invite you to the wedding of Vinayagam & Roja on 23rd August 2026 at Tiruttani.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+            background: #fcf6f0;
+            color: #2d1f14;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* ---------- ANIMATED BACKGROUND ---------- */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 215, 175, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(184, 134, 11, 0.2) 0%, transparent 50%),
+                        #fcf6f0;
+            z-index: -2;
+        }
+        .bg-pattern::after {
+            content: 'ॐ';
+            font-size: 20rem;
+            color: rgba(184, 134, 11, 0.03);
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 700;
+            z-index: -1;
+        }
+
+        /* ---------- SAKURA (flower petals) ---------- */
+        .sakura-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle at 30% 30%, #ffb6c1, #ff8a9f);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.6;
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 0.7; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(1.2); opacity: 0.1; }
+        }
+
+        /* ---------- MAIN WRAPPER ---------- */
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 20px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ---------- HERO SECTION ---------- */
+        .hero {
+            text-align: center;
+            padding: 30px 20px 30px;
+            background: linear-gradient(135deg, rgba(255, 248, 240, 0.85) 0%, rgba(255, 235, 215, 0.9) 100%);
+            border-radius: 60px 60px 40px 40px;
+            box-shadow: 0 20px 60px rgba(139, 26, 26, 0.08);
+            border: 1px solid rgba(184, 134, 11, 0.2);
+            backdrop-filter: blur(2px);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero .temple-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(184, 134, 11, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .hero .couple {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #8b1a1a;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 8px rgba(139, 26, 26, 0.1);
+        }
+        .hero .couple .heart {
+            color: #b8860b;
+            font-size: 2.8rem;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .hero .subtitle {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #5a3a22;
+            margin-top: 6px;
+            letter-spacing: 4px;
+        }
+        .hero .date-venue {
+            margin-top: 16px;
+            font-size: 1.2rem;
+            color: #3e2c1b;
+            background: rgba(255, 255, 240, 0.7);
+            padding: 10px 28px;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(184, 134, 11, 0.3);
+        }
+        .hero .date-venue i {
+            color: #b8860b;
+            margin: 0 6px;
+        }
+        .hero .date-venue .highlight {
+            font-weight: 700;
+            color: #8b1a1a;
+        }
+        .hero .date-venue .gold {
+            color: #b8860b;
+            font-weight: 600;
+        }
+
+        /* ---------- COUPLE IMAGES (CIRCLE) ---------- */
+        .couple-photos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0 10px;
+        }
+        .couple-photos .photo-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #b8860b;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            background: #f0e0d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .couple-photos .photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .couple-photos .heart-icon {
+            font-size: 2.6rem;
+            color: #8b1a1a;
+        }
+
+        /* ---------- TIMER ---------- */
+        .timer-wrapper {
+            text-align: center;
+            margin: 20px 0 10px;
+        }
+        .timer {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #8b1a1a;
+            background: rgba(255, 248, 240, 0.85);
+            padding: 10px 35px;
+            border-radius: 60px;
+            display: inline-block;
+            border: 1px solid rgba(184, 134, 11, 0.25);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+            backdrop-filter: blur(2px);
+        }
+        .timer-label {
+            font-size: 1.1rem;
+            color: #6b4f32;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
+
+        /* ---------- DETAIL CARDS ---------- */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0 25px;
+        }
+        @media (max-width: 650px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        .detail-card {
+            background: rgba(255, 248, 240, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 30px;
+            padding: 28px 24px;
+            border: 1px solid rgba(184, 134, 11, 0.15);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .detail-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 40px rgba(139, 26, 26, 0.06);
+        }
+        .detail-card .card-icon {
+            font-size: 2.2rem;
+            color: #b8860b;
+            margin-bottom: 4px;
+        }
+        .detail-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #8b1a1a;
+            margin-bottom: 8px;
+        }
+        .detail-card .sub {
+            font-size: 1.1rem;
+            color: #6b4f32;
+            margin-bottom: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .detail-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2d1f14;
+        }
+        .detail-card .highlight {
+            background: rgba(184, 134, 11, 0.12);
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #8b1a1a;
+            display: inline-block;
+        }
+        .detail-card .icon-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 6px 0;
+        }
+        .detail-card .icon-text i {
+            width: 24px;
+            color: #b8860b;
+        }
+        .detail-card .map-link {
+            display: inline-block;
+            margin-top: 12px;
+            background: #8b1a1a;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .detail-card .map-link i {
+            margin-right: 8px;
+        }
+        .detail-card .map-link:hover {
+            background: #a02020;
+            transform: scale(1.02);
+        }
+
+        /* ---------- FAMILY & CONTACT ---------- */
+        .family-section {
+            background: rgba(255, 248, 240, 0.8);
+            backdrop-filter: blur(2px);
+            border-radius: 30px;
+            padding: 28px 24px;
+            border: 1px solid rgba(184, 134, 11, 0.12);
+            margin: 20px 0 20px;
+        }
+        .family-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #8b1a1a;
+            margin-bottom: 12px;
+        }
+        .family-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 30px;
+            font-size: 1.05rem;
+        }
+        @media (max-width: 550px) {
+            .family-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+        .family-grid .label {
+            font-weight: 600;
+            color: #6b4f32;
+        }
+        .family-grid .val {
+            color: #2d1f14;
+        }
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px 40px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(184, 134, 11, 0.15);
+        }
+        .contact-row a {
+            color: #8b1a1a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            font-size: 1.1rem;
+        }
+        .contact-row a:hover {
+            color: #b8860b;
+        }
+        .contact-row i {
+            margin-right: 6px;
+            color: #b8860b;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 18px 12px 6px;
+            border-top: 1px solid rgba(184, 134, 11, 0.15);
+            font-size: 1.05rem;
+            color: #4d3220;
+        }
+        .footer .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #8b1a1a;
+            margin: 6px 0;
+        }
+        .footer .quote-tamil {
+            font-size: 1rem;
+            color: #6b4f32;
+        }
+        .footer .bless {
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .footer .heart-bottom {
+            color: #8b1a1a;
+            font-size: 1.4rem;
+        }
+        .footer .om-symbol {
+            font-size: 2rem;
+            color: #b8860b;
+            display: block;
+            margin: 6px 0;
+        }
+
+        /* ---------- MUSIC CONTROL ---------- */
+        .music-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #8b1a1a;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 6px 24px rgba(139, 26, 26, 0.4);
+            border: none;
+            cursor: pointer;
+            z-index: 9999;
+            transition: 0.3s;
+        }
+        .music-toggle:hover {
+            transform: scale(1.08);
+            background: #a02020;
+        }
+        .music-toggle.playing {
+            background: #b8860b;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 600px) {
+            .hero .temple-img {
+                height: 140px;
+            }
+            .hero .couple {
+                font-size: 2.8rem;
+            }
+            .hero .couple .heart {
+                font-size: 1.8rem;
+                margin: 0 6px;
+            }
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            .hero .date-venue {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+            .timer {
+                font-size: 1.8rem;
+                padding: 8px 20px;
+            }
+            .detail-card h3 {
+                font-size: 1.5rem;
+            }
+            .couple-photos .photo-circle {
+                width: 80px;
+                height: 80px;
+            }
+            .couple-photos .heart-icon {
+                font-size: 2rem;
+            }
+            .music-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        @media (max-width: 400px) {
+            .hero .couple {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Decorative border */
+        .decorative-border {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #b8860b;
+            letter-spacing: 12px;
+            margin: 6px 0;
+            opacity: 0.5;
+        }
+    </style>
 </head>
 <body>
-<div class="sakura-falling"></div>
-<div class="wrap">
-<div class="title">
-<h4>Sri Murugan Thunai</h4>
-<h5>Sn. M. Srinivasan &amp; Smt. S. Amaravathi Srinivasan</h5>
-<p>Cordially invite you with your family and friends to the wedding of their beloved son</p>
-<h1>S. Vinayagam, B.E.</h1>
-<h2>&amp;</h2>
-<h1>D. Roja, MBA.</h1>
-<h3>Are Getting Married</h3>
-<p><strong>Muhurtham</strong><br>Sunday, 23 August 2026<br>7:30 AM – 9:00 AM<br>
-Arulmigu Sri Subramaniya Swamy Temple, Tiruttani</p>
-<hr>
-<h3>Groom</h3>
-<p><strong>S. Vinayagam, B.E.</strong><br>LasTeck Electronics Pvt. Ltd.<br>
-Younger son of Mr. M. Srinivasan & Mrs. S. Amaravathi<br>
-Vaniyampattai, Arakkonam.</p>
-<h3>Bride</h3>
-<p><strong>D. Roja, MBA.</strong><br>Foxconn Han Hai Mega Technology Pvt. Ltd.<br>
-Younger daughter of Mr. K. Devaraj Babu & Mrs. D. Thamarai Selvi<br>
-Vadamambakkam Kandigai, Arakkonam.</p>
-<hr>
-<h3>Reception</h3>
-<p>Monday, 24 August 2026<br>6:00 PM onwards<br>
-Mangalam Thirumana Mandapam A/C<br>
-Arakkonam–Tiruttani Road, Nagalamman Nagar, Arakkonam.</p>
-<div class="actions">
-<a href="https://maps.google.com/?q=Arulmigu+Sri+Subramaniya+Swamy+Temple+Tiruttani"><button>Wedding Venue</button></a>
-<a href="https://maps.google.com/?q=Mangalam+Thirumana+Mandapam+Arakkonam"><button>Reception Venue</button></a>
-<a href="Invitation.pdf"><button>Download Invitation</button></a>
-</div>
-<p>Your gracious presence and blessings will make our celebration complete.</p>
-<p>Contact:<br>
-Groom's Family: +91 9345983118 / +91 8489469621<br>
-Bride's Family: +91 8056645658 / +91 9629960394</p>
-</div></div>
-</body></html>
+
+    <!-- Background pattern -->
+    <div class="bg-pattern"></div>
+
+    <!-- Sakura petals container -->
+    <div class="sakura-container" id="petal-container"></div>
+
+    <!-- Main Content -->
+    <div class="wrap">
+
+        <!-- Hero -->
+        <div class="hero">
+            <!-- Stock image of temple (Unsplash) -->
+            <img class="temple-img" src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&h=400&fit=crop" alt="South Indian temple" loading="lazy">
+            <div class="decorative-border">✦ ✦ ✦</div>
+            <div class="couple">
+                Vinayagam <span class="heart">❤</span> Roja
+            </div>
+            <div class="subtitle">— Are getting married —</div>
+            <div class="date-venue">
+                <i class="fas fa-calendar-alt"></i>
+                <span class="highlight">Sunday, 23<sup>rd</sup> August 2026</span>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <i class="fas fa-map-pin"></i>
+                <span class="gold">Arulmigu Sri Subramaniya Swamy Temple, Tiruttani</span>
+            </div>
+            <div style="margin-top: 10px; font-size:1rem; color:#6b4f32;">
+                <i class="fas fa-clock"></i> Muhurtham: 7:30 AM – 9:00 AM &nbsp;•&nbsp;
+                <i class="fas fa-utensils"></i> Reception: 24<sup>th</sup> Aug, 6:00 PM onwards
+            </div>
+
+            <!-- Circle photos of bride & groom (placeholders) -->
+            <div class="couple-photos">
+                <div class="photo-circle">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Groom" loading="lazy">
+                </div>
+                <span class="heart-icon">❤</span>
+                <div class="photo-circle">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face" alt="Bride" loading="lazy">
+                </div>
+            </div>
+            <div style="font-size:0.9rem; color:#6b4f32; margin-top:4px;">Vinayagam &amp; Roja</div>
+        </div>
+
+        <!-- Timer -->
+        <div class="timer-wrapper">
+            <div class="timer" id="timerDisplay">--d --h --m --s</div>
+            <div class="timer-label"><i class="fas fa-hourglass-half"></i> Countdown to the auspicious moment</div>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="details-grid">
+            <!-- Muhurtham Card -->
+            <div class="detail-card">
+                <div class="card-icon">🪷</div>
+                <h3><i class="fas fa-ring" style="color:#b8860b; margin-right:8px;"></i> Muhurtham</h3>
+                <div class="sub">Sacred ceremony</div>
+                <p>
+                    <span class="highlight">23 August 2026</span><br>
+                    <span class="icon-text"><i class="fas fa-clock"></i> 7:30 AM – 9:00 AM</span>
+                    <span class="icon-text"><i class="fas fa-place-of-worship"></i> Arulmigu Sri Subramaniya Swamy Temple</span>
+                    <span class="icon-text"><i class="fas fa-location-dot"></i> Tiruttani</span>
+                    <span style="display:block; margin-top:8px; font-size:0.95rem; color:#6b4f32;">
+                        <i class="fas fa-star" style="color:#b8860b;"></i> Ekadasi, Moolam Nakshatra, Amirtha Yogam, Kanni Lagnam
+                    </span>
+                </p>
+                <!-- Google Maps link for Temple -->
+                <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Arulmigu+Sri+Subramaniya+Swamy+Temple+Tiruttani" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i> Open in Maps
+                </a>
+            </div>
+
+            <!-- Reception Card -->
+            <div class="detail-card">
+                <div class="card-icon">🎊</div>
+                <h3><i class="fas fa-champagne-glasses" style="color:#b8860b; margin-right:8px;"></i> Reception</h3>
+                <div class="sub">Celebration dinner</div>
+                <p>
+                    <span class="highlight">24 August 2026</span><br>
+                    <span class="icon-text"><i class="fas fa-clock"></i> 6:00 PM onwards</span>
+                    <span class="icon-text"><i class="fas fa-building"></i> Mangalam Thirumana Mandapam A/c</span>
+                    <span class="icon-text"><i class="fas fa-road"></i> Arakkonam Tiruttani Road</span>
+                    <span style="display:block; margin-top:8px; font-size:0.95rem; color:#6b4f32;">
+                        <i class="fas fa-utensils"></i> Dinner &amp; blessings to follow
+                    </span>
+                </p>
+                <!-- Google Maps link for Reception -->
+                <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Mangalam+Thirumana+Mandapam+Arakkonam" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i> Open in Maps
+                </a>
+            </div>
+        </div>
+
+        <!-- Family & Contact -->
+        <div class="family-section">
+            <h3><i class="fas fa-users" style="color:#b8860b; margin-right:10px;"></i> Family Blessings</h3>
+            <div class="family-grid">
+                <div>
+                    <div><span class="label">Groom:</span> <span class="val">Selvan. S. Vinayagam, B.E. (LasTeck Electronics)</span></div>
+                    <div><span class="label">Groom’s Parents:</span> <span class="val">Thiru. M. Srinivasan &amp; Smt. S. Amaravathi</span></div>
+                    <div style="font-size:0.95rem; color:#6b4f32; margin-top:4px;">
+                        Grandparents: Late Munirathinam–Kanniammal, Late T.G. Kuppusami–Sarojammal
+                    </div>
+                </div>
+                <div>
+                    <div><span class="label">Bride:</span> <span class="val">Selvi. D. Roja, MBA. (Foxconn Han Hai Mega)</span></div>
+                    <div><span class="label">Bride’s Parents:</span> <span class="val">Thiru. K. Devaraj Babu &amp; Smt. D. Thamarai Selvi</span></div>
+                    <div style="font-size:0.95rem; color:#6b4f32; margin-top:4px;">
+                        Grandparents: Late Subramani–Kasiyammal, Late K.M. Kanniappan–Muniyammal
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 12px; font-size:1rem; color:#5a3a22;">
+                <i class="fas fa-heart" style="color:#8b1a1a;"></i>
+                <span style="font-weight:300;">Also blessed by:</span> M. Krishnan–Sulochana (uncle), N. Poobalan–Janaki Devi (teacher), S. Janakiraman (brother), S. Mahalakshmi (sister), and little ones Lakshitha &amp; Inbhaasri.
+            </div>
+            <div class="contact-row">
+                <div><i class="fas fa-phone-alt"></i> <a href="tel:+919345983118">+91 93459 83118</a> (Srinivasan)</div>
+                <div><i class="fas fa-phone-alt"></i> <a href="tel:+918056645658">+91 80566 45658</a> (Devaraj)</div>
+                <div><i class="fas fa-phone-alt"></i> <a href="tel:+918489469621">+91 84894 69621</a> (Amaravathi)</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="om-symbol">ॐ</div>
+            <div class="bless">
+                With the divine grace of <strong>Lord Murugan</strong>, we cordially invite you and your family<br>
+                to grace this auspicious occasion with your presence and blessings.
+            </div>
+            <div class="quote">
+                “அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை பண்பும் பயனும் அது”
+            </div>
+            <div class="quote-tamil">
+                — If a household is possessed of love and virtue, it has character and benefit.
+            </div>
+            <div style="margin-top:10px; font-size:0.9rem; color:#8b6b50;">
+                <i class="fas fa-map-marker-alt"></i> Vadamambakkam Kandigai, Vaniyampattai, Arakkonam
+            </div>
+            <div style="margin-top:10px; font-size:1.2rem; color:#b8860b;">
+                <span class="heart-bottom">❤</span> <span style="font-weight:300;">With love from the families</span> <span class="heart-bottom">❤</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Toggle Button -->
+    <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Audio element (Royalty-free Indian wedding instrumental from Pixabay) -->
+    <audio id="weddingAudio" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/02/audio_7b8c3d9b5e.mp3?filename=indian-wedding-116065.mp3" type="audio/mpeg">
+        <!-- Fallback -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        (function() {
+            // ---------- SAKURA PETALS (reduced count for performance) ----------
+            const container = document.getElementById('petal-container');
+            const petalCount = 25;
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                const size = 12 + Math.random() * 18;
+                petal.style.width = size + 'px';
+                petal.style.height = size + 'px';
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = (10 + Math.random() * 16) + 's';
+                petal.style.animationDelay = (Math.random() * 20) + 's';
+                petal.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+                const hue = 340 + Math.random() * 20;
+                petal.style.background = 'radial-gradient(circle at 30% 30%, hsl('+hue+', 80%, 80%), hsl('+hue+', 70%, 60%))';
+                container.appendChild(petal);
+            }
+
+            // ---------- COUNTDOWN TIMER ----------
+            const weddingDate = new Date('2026-08-23T07:30:00+05:30').getTime();
+            const timerEl = document.getElementById('timerDisplay');
+
+            function pad(n) { return n < 10 ? '0'+n : n; }
+
+            function updateTimer() {
+                const now = Date.now();
+                let diff = weddingDate - now;
+                if (diff <= 0) {
+                    timerEl.innerHTML = '🎉 Today is the day! 🎉';
+                    return;
+                }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (86400000)) / (3600000));
+                const minutes = Math.floor((diff % 3600000) / 60000);
+                const seconds = Math.floor((diff % 60000) / 1000);
+                timerEl.textContent = days + 'd ' + pad(hours) + 'h ' + pad(minutes) + 'm ' + pad(seconds) + 's';
+            }
+            updateTimer();
+            setInterval(updateTimer, 1000);
+
+            // ---------- MUSIC CONTROL ----------
+            const audio = document.getElementById('weddingAudio');
+            const toggleBtn = document.getElementById('musicToggle');
+            let isPlaying = false;
+
+            // Attempt autoplay on load
+            audio.play().then(() => {
+                isPlaying = true;
+                toggleBtn.classList.add('playing');
+                toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }).catch(() => {
+                isPlaying = false;
+                toggleBtn.classList.remove('playing');
+                toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
+            });
+
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                    toggleBtn.classList.remove('playing');
+                    toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
+                } else {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        toggleBtn.classList.add('playing');
+                        toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    }).catch(() => {
+                        alert('Please click again to play the music.');
+                    });
+                }
+            });
+
+            // Loop
+            audio.addEventListener('ended', function() {
+                audio.currentTime = 0;
+                audio.play();
+            });
+
+        })();
+    </script>
+</body>
+</html>
