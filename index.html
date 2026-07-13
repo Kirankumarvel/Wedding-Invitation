@@ -1,104 +1,384 @@
 <!DOCTYPE html>
-<html lang="en" >
-   <head>
-      <link rel="shortcut icon" href="favicon.png" type="image/png"> 
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-      <meta name="description"
-         content="With the divine grace of the almighty, inviting you and your family to Sonali's wedding to be held on 02nd August at Vanniyam Pet,  , Arakkonam from 8:30 AM onwards.">
-      <meta name="author" content="Vinit Shahdeo">
-      <meta name="email" content="vinitshahdeo@gmail.com">
-      <meta name="copyright" content="Vinit Shahdeo 2020" />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="Wedding Invitation | 2nd Aug | Vanniyam Pet, Arakkonam" />
-      <meta property="og:description"
-         content="With the divine grace of the almighty, inviting you and your family to elder sister's wedding to be held on 02nd August at Vanniyam Pet,  , Arakkonam from 8:30 AM onwards." />
-      <meta property="og:image" content="images/aravind-sindhu.jpg" />
-      <meta property="og:url" content="" />
-      <meta property="og:site_name" content="Wedding Invitation | 02nd Aug" />
-      <meta name="twitter:card" content="website">
-      <meta name="twitter:site" content="Wedding Invitation | 02nd Aug">
-      <meta name="twitter:title" content="Wedding Invitation | 02nd Aug">
-      <meta name="twitter:description"
-         content="With the divine grace of the almighty, inviting you and your family to elder sister's wedding to be held on 02nd August at Vanniyam Pet,  , Arakkonam from 8:30 AM onwards.">
-      <meta name="twitter:creator" content="@Vinit_Shahdeo">
-      <meta name="twitter:image" content="/images/aravind-sindhu.jpg>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="With the divine grace of Lord Murugan, we cordially invite you and your family to the wedding of Vinayagam & Roja on 23rd August 2026 at Tiruttani.">
+    <meta name="author" content="Wedding Invitation">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wedding Invitation | Vinayagam & Roja | 23 Aug 2026" />
+    <meta property="og:description" content="With the divine grace of Lord Murugan, we cordially invite you and your family to the wedding of Vinayagam & Roja on 23rd August 2026 at Tiruttani." />
+    <meta property="og:image" content="https://i.imgur.com/dGOOfnA.png" />
+    <meta name="twitter:card" content="website">
+    <meta name="twitter:title" content="Wedding Invitation | Vinayagam & Roja | 23 Aug 2026">
+    <meta name="twitter:description" content="With the divine grace of Lord Murugan, we cordially invite you and your family to the wedding of Vinayagam & Roja on 23rd August 2026 at Tiruttani.">
 
-      <title>Wedding Invitation | Nov 29 | Vanniyam Pet, Arakkonam</title>
+    <title>Wedding Invitation | Vinayagam & Roja | 23 Aug 2026</title>
 
-      <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Dancing+Script&amp;display=swap'>
-      <link rel="stylesheet" href="./css/style.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   </head>
-   <body>
-      <!-- partial:index.partial.html -->
-      <div class="sakura-falling"></div>
-      <img src="https://i.imgur.com/dGOOfnA.png" alt="image-top-right" class="top-right-decoration">
-      <img src="https://i.imgur.com/t6ffnbn.png" alt="image-top-left" class="top-left-decoration"> 
-      <section id="media"></section>
-      <div class="wrap">
-         <div class="title">
-            <h1>Sindhu</h1>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Dancing+Script&amp;display=swap'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        /* ----- GENERAL RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f9f0e6;
+            font-family: 'Arvo', serif;
+            color: #3e2c1b;
+            text-align: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* decorative images */
+        .top-right-decoration {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .top-left-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120px;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+        /* sakura container */
+        .sakura-falling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+        /* main wrap */
+        .wrap {
+            position: relative;
+            z-index: 10;
+            padding: 40px 20px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title {
+            margin-bottom: 20px;
+        }
+        .title h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.2rem;
+            font-weight: 700;
+            color: #8b1a1a;
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+        .title h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #b8860b;
+            margin: 4px 0;
+        }
+        .title h3 {
+            font-family: 'Arvo', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #5a3a22;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+        .title p {
+            font-size: 1.2rem;
+            color: #4d3220;
+            margin-top: 12px;
+            line-height: 1.8;
+        }
+        .title p .date {
+            font-weight: 700;
+            color: #8b1a1a;
+        }
+        .title p .place {
+            font-weight: 700;
+            color: #b8860b;
+        }
+        .sub-details {
+            font-size: 1rem;
+            color: #5a3a22;
+            margin-top: 8px;
+            background: rgba(255,255,240,0.7);
+            padding: 12px 24px;
+            border-radius: 40px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            border: 1px solid #ecd8c0;
+        }
+        .sub-details span {
+            display: inline-block;
+            margin: 0 6px;
+        }
+        /* timer */
+        #time {
+            font-family: 'Arvo', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #8b1a1a;
+            background: rgba(255,248,240,0.8);
+            padding: 10px 30px;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 12px 0 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #ecd8c0;
+        }
+        .dance-med {
+            font-size: 1.1rem;
+            color: #6b4f32;
+            margin: 8px 0 18px;
+            letter-spacing: 1px;
+        }
+        /* actions */
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0 20px;
+        }
+        .actions a {
+            text-decoration: none;
+        }
+        .venue {
+            background: #8b1a1a;
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            border: 2px solid #8b1a1a;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(139,26,26,0.2);
+        }
+        .venue:hover {
+            background: #a02020;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139,26,26,0.3);
+        }
+        .venue.outline {
+            background: transparent;
+            color: #8b1a1a;
+            border: 2px solid #8b1a1a;
+        }
+        .venue.outline:hover {
+            background: #8b1a1a;
+            color: #fff;
+        }
+        /* family & contact section */
+        .family-info {
+            margin: 20px 0 12px;
+            font-size: 0.95rem;
+            color: #3e2c1b;
+            background: rgba(255,248,240,0.7);
+            padding: 16px 24px;
+            border-radius: 20px;
+            backdrop-filter: blur(2px);
+            border: 1px solid #ecd8c0;
+            max-width: 700px;
+            width: 100%;
+        }
+        .family-info .label {
+            font-weight: 700;
+            color: #6b4f32;
+        }
+        .family-info .row {
+            margin: 6px 0;
+        }
+        .footer {
+            font-size: 0.95rem;
+            color: #6b4f32;
+            margin-top: 16px;
+            padding: 16px 12px 6px;
+            border-top: 1px solid #ecd8c0;
+            width: 100%;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+        .footer span {
+            display: block;
+            margin-top: 4px;
+            font-size: 0.9rem;
+            color: #8b1a1a;
+        }
+        .happiness {
+            font-size: 1rem;
+            color: #5a3a22;
+            margin: 12px 0 20px;
+        }
+        .happiness a {
+            color: #1da1f2;
+            text-decoration: none;
+            margin: 0 4px;
+        }
+        .happiness a:hover {
+            text-decoration: underline;
+        }
+        /* responsive */
+        @media (max-width: 600px) {
+            .title h1 { font-size: 3rem; }
+            .title h2 { font-size: 2.2rem; }
+            .title h3 { font-size: 1.3rem; }
+            #time { font-size: 1.6rem; padding: 8px 20px; }
+            .top-right-decoration, .top-left-decoration { width: 70px; }
+            .venue { padding: 10px 20px; font-size: 0.9rem; }
+        }
+        @media (max-width: 400px) {
+            .title h1 { font-size: 2.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- decorative images -->
+    <img src="https://i.imgur.com/dGOOfnA.png" alt="decoration right" class="top-right-decoration">
+    <img src="https://i.imgur.com/t6ffnbn.png" alt="decoration left" class="top-left-decoration">
+
+    <!-- sakura falling container -->
+    <div class="sakura-falling"></div>
+
+    <!-- main content -->
+    <div class="wrap">
+        <div class="title">
+            <h1>Vinayagam</h1>
             <h2>&</h2>
-            <h1>Aravind</h1>
+            <h1>Roja</h1>
             <h3>Are getting married</h3>
             <p>
-               on <span class="date">29 November 2020</span></29>, At <span class="place">Vanniyam Pet</span>  , Arakkonam                
+                on <span class="date">Sunday, 23<sup>rd</sup> August 2026</span><br>
+                at <span class="place">Arulmigu Sri Subramaniya Swamy Temple, Tiruttani</span>
             </p>
-         </div>
-      </div>
-      <div id="time"></div>
-      <p class="dance-med">
-         dinner & dancing to follow
-      </p>
-      <div class="actions">
-        <a href="https://share.google/vL18r9pWVhMNt9iGd" target="_blank">
-          <div class="venue">SEE THE VENUE</div>
-        </a>
-        <a href="https://github.com/Kirankumarvel/Wedding-Invitation/blob/main/invitation/Aravind%20%26%20Sindhu.pdf" download="Invitation | 23 Nov | Hope to see you there!">
-          <div class="venue">DOWNLOAD INVITATION CARD</div>
-        </a>
-      </div>
-      <p class="footer">
-         Can't wait to celebrate auspicious moment of our family with you! <br>
-         Just a ping away for any queries: +91-96551 18268
-         <span></span>
-      </p>
-      <div class="music">
-        <audio src="./assets/mp3/song.mp3" id="my_audio" loop="loop"></audio> 
-      </div>
-      <p class="happiness">Join us in our happiness!<br><a href="https://x.com/kirananrik" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></p>
-      <!-- partial -->
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-      <script src='https://cdn.jsdelivr.net/gh/timoschaefer/jQuery-Sakura/jquery-sakura.min.js'></script>
-      <script  src="./js/script.js"></script>
-   </body>
-<!---
-   _____                     __  __            ____        __     
-  / ___/____ __   _____     / /_/ /_  ___     / __ \____ _/ /____ 
-  \__ \/ __ `/ | / / _ \   / __/ __ \/ _ \   / / / / __ `/ __/ _ \
- ___/ / /_/ /| |/ /  __/  / /_/ / / /  __/  / /_/ / /_/ / /_/  __/
-/____/\__,_/ |___/\___/   \__/_/ /_/\___/  /_____/\__,_/\__/\___/ 
-    _   __              ___  ____       ___   ____ ___   ____     
-   / | / /___ _   __   |__ \/ __ \     |__ \ / __ \__ \ / __ \    
-  /  |/ / __ \ | / /   __/ / /_/ /     __/ // / / /_/ // / / /    
- / /|  / /_/ / |/ /   / __/\__, /     / __// /_/ / __// /_/ /     
-/_/ |_/\____/|___/   /____/____( )   /____/\____/____/\____/      
-                               |/                                 
--->
+            <div class="sub-details">
+                <span>🕊️ Muhurtham: 7:30 AM – 9:00 AM</span>
+                <span>•</span>
+                <span>🌸 Reception: 24<sup>th</sup> Aug, 6:00 PM onwards</span>
+                <span>•</span>
+                <span>🏛️ Mangalam Thirumana Mandapam, Arakkonam</span>
+            </div>
+        </div>
 
-<!--
+        <!-- countdown timer -->
+        <div id="time"></div>
 
-With the divine grace of the almighty,
-I cordially invite you and your family to
-my elder sister's wedding to be held on 02nd August at Vanniyam Pet,  , Arakkonam 
-from 8:30 AM onwards.
+        <p class="dance-med">
+            ✦ Dinner &amp; reception to follow ✦
+        </p>
 
-I'd eagerly await your kind presence in auspicious occasion of my family.
+        <!-- action buttons -->
+        <div class="actions">
+            <a href="#" target="_blank">
+                <div class="venue">📍 SEE THE VENUE</div>
+            </a>
+            <a href="#" download="Invitation_Vinayagam_Roja.pdf">
+                <div class="venue outline">📄 DOWNLOAD INVITATION</div>
+            </a>
+        </div>
 
--->
+        <!-- family & contact details -->
+        <div class="family-info">
+            <div class="row"><span class="label">Groom:</span> Selvan. S. Vinayagam, B.E. (LasTeck Electronics Pvt.Ltd.)</div>
+            <div class="row"><span class="label">Bride:</span> Selvi. D. Roja, MBA. (Foxconn Han Hai Mega Technology Pvt.Ltd.)</div>
+            <div class="row" style="margin-top:8px; border-top:1px dashed #ecd8c0; padding-top:8px;">
+                <span class="label">Parents of the Groom:</span> Thiru. M. Srinivasan &amp; Smt. S. Amaravathi
+            </div>
+            <div class="row">
+                <span class="label">Parents of the Bride:</span> Thiru. K. Devaraj Babu &amp; Smt. D. Thamarai Selvi
+            </div>
+            <div class="row" style="margin-top:6px; font-size:0.9rem; color:#6b4f32;">
+                <span class="label">Grandparents &amp; Family:</span> 
+                Late Munirathinam–Kanniammal, Late T.G. Kuppusami–Sarojammal, 
+                Late Subramani–Kasiyammal, Late K.M. Kanniappan–Muniyammal
+            </div>
+            <div class="row" style="margin-top:6px; font-size:0.9rem;">
+                <span class="label">Contact:</span> 
+                +91 93459 83118 (Srinivasan) &nbsp;|&nbsp; +91 80566 45658 (Devaraj)
+            </div>
+        </div>
 
-<!-- Built with love by Vinit Shahdeo -->
+        <!-- footer -->
+        <p class="footer">
+            With the divine grace of Lord Murugan, we cordially invite you and your family<br>
+            to grace this auspicious occasion with your presence and blessings.<br>
+            <span>“அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை பண்பும் பயனும் அது”</span>
+            <span style="font-size:0.8rem; color:#8b6b50;">— If a household is possessed of love and virtue, it has character and benefit.</span>
+        </p>
 
+        <p class="happiness">
+            Join us in our happiness!<br>
+            <a href="#" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+            &nbsp;
+            <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+        </p>
+    </div>
+
+    <!-- music player (autoplay optional) -->
+    <div class="music">
+        <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" id="my_audio" loop="loop"></audio>
+    </div>
+
+    <!-- scripts -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/timoschaefer/jQuery-Sakura/jquery-sakura.min.js'></script>
+    <script>
+        $(document).ready(function() {
+            // sakura petals
+            $('.sakura-falling').sakura({
+                blow: false,
+                colors: [
+                    {r: 255, g: 182, b: 193, opacity: 0.8},
+                    {r: 255, g: 218, b: 185, opacity: 0.7},
+                    {r: 255, g: 240, b: 245, opacity: 0.6}
+                ]
+            });
+
+            // countdown timer
+            function updateTimer() {
+                const weddingDate = new Date('August 23, 2026 07:30:00').getTime();
+                const now = new Date().getTime();
+                const diff = weddingDate - now;
+                if (diff <= 0) {
+                    document.getElementById('time').innerHTML = "🎉 Today is the day! 🎉";
+                    return;
+                }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (86400000)) / (3600000));
+                const minutes = Math.floor((diff % 3600000) / 60000);
+                const seconds = Math.floor((diff % 60000) / 1000);
+                document.getElementById('time').innerHTML =
+                    days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+            }
+            updateTimer();
+            setInterval(updateTimer, 1000);
+
+            // auto-play music (optional) – uncomment to enable
+            // var audio = document.getElementById('my_audio');
+            // audio.play().catch(function(e) { /* user interaction needed */ });
+        });
+    </script>
+</body>
 </html>
