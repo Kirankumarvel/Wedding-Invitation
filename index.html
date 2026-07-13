@@ -46,8 +46,8 @@
             z-index: -1;
         }
 
-        /* ---------- SAKURA (flower petals) ---------- */
-        .sakura-container {
+        /* ---------- FALLING ROSES (replaces sakura) ---------- */
+        .roses-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -57,19 +57,35 @@
             z-index: 999;
             overflow: hidden;
         }
-        .petal {
+        .rose {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle at 30% 30%, #ffb6c1, #ff8a9f);
-            border-radius: 50% 0 50% 50%;
-            opacity: 0.6;
-            animation: fall linear infinite;
+            font-size: 28px;
+            opacity: 0.85;
+            animation: fallRose linear infinite;
+            pointer-events: none;
+            text-shadow: 0 0 12px rgba(255, 105, 180, 0.5), 0 4px 12px rgba(0,0,0,0.1);
+            filter: drop-shadow(0 4px 8px rgba(255, 20, 80, 0.2));
+            /* water droplet effect via pseudo-element (added in JS) */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* glossy overlay to mimic water droplet */
+        .rose::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 40%;
+            height: 30%;
+            background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.5;
             pointer-events: none;
         }
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 0.7; }
-            100% { transform: translateY(110vh) rotate(720deg) scale(1.2); opacity: 0.1; }
+        @keyframes fallRose {
+            0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 0.9; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(1.3); opacity: 0.1; }
         }
 
         /* ---------- MAIN WRAPPER ---------- */
@@ -453,10 +469,16 @@
                 bottom: 20px;
                 right: 20px;
             }
+            .rose {
+                font-size: 20px !important;
+            }
         }
         @media (max-width: 400px) {
             .hero .couple {
                 font-size: 2.2rem;
+            }
+            .rose {
+                font-size: 16px !important;
             }
         }
 
@@ -476,8 +498,8 @@
     <!-- Background pattern -->
     <div class="bg-pattern"></div>
 
-    <!-- Sakura petals container -->
-    <div class="sakura-container" id="petal-container"></div>
+    <!-- Falling roses container -->
+    <div class="roses-container" id="rosesContainer"></div>
 
     <!-- Main Content -->
     <div class="wrap">
@@ -573,43 +595,44 @@
                     <div><span class="label">Groom:</span> <span class="val">Selvan. S. Vinayagam, B.E. (LasTeck Electronics)</span></div>
                     <div><span class="label">Groom’s Parents:</span> <span class="val">Thiru. M. Srinivasan &amp; Smt. S. Amaravathi</span></div>
                     <div style="font-size:0.95rem; color:#6b4f32; margin-top:4px;">
-                        Grandparents: Late Munirathinam–Kanniammal, Late T.G. Kuppusami–Sarojammal
+                        Grandparents: Late Munirathinam–Kanniammal, Late Subramani–Kasiyammal
                     </div>
                 </div>
                 <div>
                     <div><span class="label">Bride:</span> <span class="val">Selvi. D. Roja, MBA. (Foxconn Han Hai Mega)</span></div>
                     <div><span class="label">Bride’s Parents:</span> <span class="val">Thiru. K. Devaraj Babu &amp; Smt. D. Thamarai Selvi</span></div>
                     <div style="font-size:0.95rem; color:#6b4f32; margin-top:4px;">
-                        Grandparents: Late Subramani–Kasiyammal, Late K.M. Kanniappan–Muniyammal
+                        Grandparents: Late T.G. Kuppusami–Sarojammal, Late K.M. Kanniappan–Muniyammal
                     </div>
                 </div>
             </div>
             <div style="margin-top: 12px; font-size:1rem; color:#5a3a22;">
                 <i class="fas fa-heart" style="color:#8b1a1a;"></i>
-                <span style="font-weight:300;">Also blessed by:</span> M. Krishnan–Sulochana (uncle), N. Poobalan–Janaki Devi (teacher), S. Janakiraman (brother), S. Mahalakshmi (sister), and little ones Lakshitha &amp; Inbhaasri.
+                <span style="font-weight:300;">Also blessed by:</span> M. Krishnan–Sulochana (Periappa), N. Boobalan–Janaki Devi (teacher), S. Janakiraman (brother), S. Mahalakshmi (sister), and little ones Lakshitha &amp; Inbasri.
             </div>
             <div class="contact-row">
-                <div><i class="fas fa-phone-alt"></i> <a href="tel:+919345983118">+91 93459 83118</a> (Srinivasan)</div>
-                <div><i class="fas fa-phone-alt"></i> <a href="tel:+918056645658">+91 80566 45658</a> (Devaraj)</div>
+                <div><i class="fas fa-phone-alt"></i> <a href="tel:+91962960394">+91 9629 60394</a> (Vinayagam)</div>
+                <div><i class="fas fa-phone-alt"></i> <a href="tel:+918056645658">+91 80566 45658</a> (Janakiraman)</div>
                 <div><i class="fas fa-phone-alt"></i> <a href="tel:+918489469621">+91 84894 69621</a> (Amaravathi)</div>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <div class="om-symbol">ॐ</div>
+            <div class="om-symbol">ஓம்</div>
             <div class="bless">
                 With the divine grace of <strong>Lord Murugan</strong>, we cordially invite you and your family<br>
                 to grace this auspicious occasion with your presence and blessings.
             </div>
             <div class="quote">
-                “அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை பண்பும் பயனும் அது”
+                “அன்பும் அறனும் உடைத்தாயின் இல்வாழ்க்கை <br/>
+                பண்பும் பயனும் அது”
             </div>
             <div class="quote-tamil">
                 — If a household is possessed of love and virtue, it has character and benefit.
             </div>
             <div style="margin-top:10px; font-size:0.9rem; color:#8b6b50;">
-                <i class="fas fa-map-marker-alt"></i> Vadamambakkam Kandigai, Vaniyampattai, Arakkonam
+                <i class="fas fa-map-marker-alt"></i> Vaniyampattai, Arakkonam
             </div>
             <div style="margin-top:10px; font-size:1.2rem; color:#b8860b;">
                 <span class="heart-bottom">❤</span> <span style="font-weight:300;">With love from the families</span> <span class="heart-bottom">❤</span>
@@ -622,7 +645,7 @@
         <i class="fas fa-music"></i>
     </button>
 
-    <!-- Audio element (Royalty-free Indian wedding instrumental from Pixabay) -->
+    <!-- Audio element (Royalty-free Indian wedding instrumental) -->
     <audio id="weddingAudio" loop preload="auto">
         <source src="/music/wedding.mp3" type="audio/mpeg">
         <!-- Fallback -->
@@ -631,22 +654,22 @@
 
     <script>
         (function() {
-            // ---------- SAKURA PETALS (reduced count for performance) ----------
-            const container = document.getElementById('petal-container');
-            const petalCount = 25;
-            for (let i = 0; i < petalCount; i++) {
-                const petal = document.createElement('div');
-                petal.className = 'petal';
-                const size = 12 + Math.random() * 18;
-                petal.style.width = size + 'px';
-                petal.style.height = size + 'px';
-                petal.style.left = Math.random() * 100 + '%';
-                petal.style.animationDuration = (10 + Math.random() * 16) + 's';
-                petal.style.animationDelay = (Math.random() * 20) + 's';
-                petal.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
-                const hue = 340 + Math.random() * 20;
-                petal.style.background = 'radial-gradient(circle at 30% 30%, hsl('+hue+', 80%, 80%), hsl('+hue+', 70%, 60%))';
-                container.appendChild(petal);
+            // ---------- FALLING ROSES (replaces sakura) ----------
+            const container = document.getElementById('rosesContainer');
+            const roseCount = 40;
+            for (let i = 0; i < roseCount; i++) {
+                const rose = document.createElement('div');
+                rose.className = 'rose';
+                rose.textContent = '🌹'; // rose emoji
+                const size = 20 + Math.random() * 28;
+                rose.style.fontSize = size + 'px';
+                rose.style.left = Math.random() * 100 + '%';
+                rose.style.animationDuration = (10 + Math.random() * 18) + 's';
+                rose.style.animationDelay = (Math.random() * 22) + 's';
+                rose.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+                // vary opacity
+                rose.style.opacity = 0.5 + Math.random() * 0.5;
+                container.appendChild(rose);
             }
 
             // ---------- COUNTDOWN TIMER ----------
