@@ -30,8 +30,8 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at 10% 20%, rgba(255, 215, 175, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 90% 80%, rgba(184, 134, 11, 0.2) 0%, transparent 50%),
-                        #fcf6f0;
+                radial-gradient(circle at 90% 80%, rgba(184, 134, 11, 0.2) 0%, transparent 50%),
+                #fcf6f0;
             z-index: -2;
         }
         .bg-pattern::after {
@@ -46,7 +46,7 @@
             z-index: -1;
         }
 
-        /* ---------- FALLING ROSES (replaces sakura) ---------- */
+        /* ---------- FALLING ROSES ---------- */
         .roses-container {
             position: fixed;
             top: 0;
@@ -63,14 +63,12 @@
             opacity: 0.85;
             animation: fallRose linear infinite;
             pointer-events: none;
-            text-shadow: 0 0 12px rgba(255, 105, 180, 0.5), 0 4px 12px rgba(0,0,0,0.1);
+            text-shadow: 0 0 12px rgba(255, 105, 180, 0.5), 0 4px 12px rgba(0, 0, 0, 0.1);
             filter: drop-shadow(0 4px 8px rgba(255, 20, 80, 0.2));
-            /* water droplet effect via pseudo-element (added in JS) */
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        /* glossy overlay to mimic water droplet */
         .rose::after {
             content: '';
             position: absolute;
@@ -78,14 +76,20 @@
             left: 2px;
             width: 40%;
             height: 30%;
-            background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
             border-radius: 50%;
             opacity: 0.5;
             pointer-events: none;
         }
         @keyframes fallRose {
-            0% { transform: translateY(-10vh) rotate(0deg) scale(0.8); opacity: 0.9; }
-            100% { transform: translateY(110vh) rotate(720deg) scale(1.3); opacity: 0.1; }
+            0% {
+                transform: translateY(-10vh) rotate(0deg) scale(0.8);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) scale(1.3);
+                opacity: 0.1;
+            }
         }
 
         /* ---------- MAIN WRAPPER ---------- */
@@ -116,7 +120,7 @@
             border-radius: 30px;
             margin-bottom: 20px;
             border: 2px solid rgba(184, 134, 11, 0.2);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
         .hero .couple {
             font-family: 'Playfair Display', serif;
@@ -178,7 +182,7 @@
             border-radius: 50%;
             border: 4px solid #b8860b;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
             background: #f0e0d0;
             display: flex;
             align-items: center;
@@ -209,7 +213,7 @@
             border-radius: 60px;
             display: inline-block;
             border: 1px solid rgba(184, 134, 11, 0.25);
-            box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
             backdrop-filter: blur(2px);
         }
         .timer-label {
@@ -238,7 +242,7 @@
             border-radius: 30px;
             padding: 28px 24px;
             border: 1px solid rgba(184, 134, 11, 0.15);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
@@ -428,6 +432,28 @@
         .music-toggle.playing {
             background: #b8860b;
         }
+        .music-toggle .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            animation: pulseRing 2s ease-out infinite;
+            pointer-events: none;
+        }
+        @keyframes pulseRing {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        .music-toggle.playing .pulse-ring {
+            border-color: rgba(184, 134, 11, 0.5);
+        }
 
         /* ---------- RESPONSIVE ---------- */
         @media (max-width: 600px) {
@@ -482,7 +508,6 @@
             }
         }
 
-        /* Decorative border */
         .decorative-border {
             text-align: center;
             font-size: 1.6rem;
@@ -490,6 +515,32 @@
             letter-spacing: 12px;
             margin: 6px 0;
             opacity: 0.5;
+        }
+
+        /* audio load error toast */
+        .audio-toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            z-index: 9998;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .audio-toast.show {
+            opacity: 1;
+        }
+        .audio-toast i {
+            margin-right: 8px;
+            color: #f5c542;
         }
     </style>
 </head>
@@ -501,12 +552,14 @@
     <!-- Falling roses container -->
     <div class="roses-container" id="rosesContainer"></div>
 
+    <!-- Audio toast notification -->
+    <div class="audio-toast" id="audioToast"><i class="fas fa-music"></i> <span id="toastMsg">Tap play to start music</span></div>
+
     <!-- Main Content -->
     <div class="wrap">
 
         <!-- Hero -->
         <div class="hero">
-            <!-- Stock image of temple (Unsplash) -->
             <img class="temple-img" src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&h=400&fit=crop" alt="South Indian temple" loading="lazy">
             <div class="decorative-border">✦ ✦ ✦</div>
             <div class="couple">
@@ -521,15 +574,13 @@
                 <span class="gold">Arulmigu Sri Subramaniya Swamy Temple, Tiruttani</span>
             </div>
 
-
-            <!-- Circle photos of bride & groom (placeholders) -->
             <div class="couple-photos">
                 <div class="photo-circle">
-                    <img src="/images/groom.jpg" alt="Groom" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Groom" loading="lazy">
                 </div>
                 <span class="heart-icon">❤</span>
                 <div class="photo-circle">
-                    <img src="/images/bride.jpg" alt="Bride" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face" alt="Bride" loading="lazy">
                 </div>
             </div>
             <div style="font-size:0.9rem; color:#6b4f32; margin-top:4px;">Vinayagam &amp; Roja</div>
@@ -543,7 +594,6 @@
 
         <!-- Details Grid -->
         <div class="details-grid">
-            <!-- Muhurtham Card -->
             <div class="detail-card">
                 <div class="card-icon">🪷</div>
                 <h3><i class="fas fa-ring" style="color:#b8860b; margin-right:8px;"></i> Muhurtham</h3>
@@ -557,13 +607,11 @@
                         <i class="fas fa-star" style="color:#b8860b;"></i> Ekadasi, Moolam Nakshatra, Amirtha Yogam, Kanni Lagnam
                     </span>
                 </p>
-                <!-- Google Maps link for Temple -->
                 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Arulmigu+Sri+Subramaniya+Swamy+Temple+Tiruttani" target="_blank">
                     <i class="fas fa-map-marker-alt"></i> Open in Maps
                 </a>
             </div>
 
-            <!-- Reception Card -->
             <div class="detail-card">
                 <div class="card-icon">🎊</div>
                 <h3><i class="fas fa-champagne-glasses" style="color:#b8860b; margin-right:8px;"></i> Reception</h3>
@@ -577,7 +625,6 @@
                         <i class="fas fa-utensils"></i> Dinner &amp; blessings to follow
                     </span>
                 </p>
-                <!-- Google Maps link for Reception -->
                 <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Mangalam+Thirumana+Mandapam+Arakkonam" target="_blank">
                     <i class="fas fa-map-marker-alt"></i> Open in Maps
                 </a>
@@ -590,14 +637,14 @@
             <div class="family-grid">
                 <div>
                     <div><span class="label">Groom:</span> <span class="val">Selvan. S. Vinayagam, B.E. (LasTeck Electronics)</span></div>
-                    <div><span class="label">Groom’s Parents:</span> <span class="val">Thiru. M. Srinivasan &amp; Smt. S. Amaravathi</span></div>
+                    <div><span class="label">Groom's Parents:</span> <span class="val">Thiru. M. Srinivasan &amp; Smt. S. Amaravathi</span></div>
                     <div style="font-size:0.95rem; color:#6b4f32; margin-top:4px;">
                         Grandparents: Late Munirathinam–Kanniammal, Late Subramani–Kasiyammal
                     </div>
                 </div>
                 <div>
                     <div><span class="label">Bride:</span> <span class="val">Selvi. D. Roja, MBA. (Foxconn Han Hai Mega)</span></div>
-                    <div><span class="label">Bride’s Parents:</span> <span class="val">Thiru. K. Devaraj Babu &amp; Smt. D. Thamarai Selvi</span></div>
+                    <div><span class="label">Bride's Parents:</span> <span class="val">Thiru. K. Devaraj Babu &amp; Smt. D. Thamarai Selvi</span></div>
                     <div style="font-size:0.95rem; color:#6b4f32; margin-top:4px;">
                         Grandparents: Late T.G. Kuppusami–Sarojammal, Late K.M. Kanniappan–Muniyammal
                     </div>
@@ -610,7 +657,6 @@
             <div class="contact-row">
                 <div><i class="fas fa-phone-alt"></i> <a href="tel:+91962960394">+91 9629 60394</a> (Vinayagam)</div>
                 <div><i class="fas fa-phone-alt"></i> <a href="tel:+918056645658">+91 80566 45658</a> (Janakiraman)</div>
-                
             </div>
         </div>
 
@@ -639,32 +685,37 @@
 
     <!-- Music Toggle Button -->
     <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+        <span class="pulse-ring"></span>
         <i class="fas fa-music"></i>
     </button>
 
-    <!-- Audio element (Royalty-free Indian wedding instrumental) -->
-    <audio id="weddingAudio" loop preload="auto">
-        <source src="/music/wedding.mp3" type="audio/mpeg">
-        <!-- Fallback -->
+    <!-- Audio element with multiple fallback sources -->
+    <audio id="weddingAudio" loop preload="auto" crossorigin="anonymous">
+        <!-- Primary: SoundHelix royalty-free instrumental (reliable) -->
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <!-- Fallback: same source with different extension -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <!-- Local fallback (if deployed) -->
+        <source src="/music/wedding.mp3" type="audio/mpeg">
     </audio>
 
     <script>
         (function() {
-            // ---------- FALLING ROSES (replaces sakura) ----------
+            'use strict';
+
+            // ---------- FALLING ROSES ----------
             const container = document.getElementById('rosesContainer');
             const roseCount = 40;
             for (let i = 0; i < roseCount; i++) {
                 const rose = document.createElement('div');
                 rose.className = 'rose';
-                rose.textContent = '🌹'; // rose emoji
+                rose.textContent = '🌹';
                 const size = 20 + Math.random() * 28;
                 rose.style.fontSize = size + 'px';
                 rose.style.left = Math.random() * 100 + '%';
                 rose.style.animationDuration = (10 + Math.random() * 18) + 's';
                 rose.style.animationDelay = (Math.random() * 22) + 's';
                 rose.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
-                // vary opacity
                 rose.style.opacity = 0.5 + Math.random() * 0.5;
                 container.appendChild(rose);
             }
@@ -673,7 +724,7 @@
             const weddingDate = new Date('2026-08-23T07:30:00+05:30').getTime();
             const timerEl = document.getElementById('timerDisplay');
 
-            function pad(n) { return n < 10 ? '0'+n : n; }
+            function pad(n) { return n < 10 ? '0' + n : n; }
 
             function updateTimer() {
                 const now = Date.now();
@@ -694,43 +745,139 @@
             // ---------- MUSIC CONTROL ----------
             const audio = document.getElementById('weddingAudio');
             const toggleBtn = document.getElementById('musicToggle');
+            const toast = document.getElementById('audioToast');
+            const toastMsg = document.getElementById('toastMsg');
             let isPlaying = false;
+            let autoplayAttempted = false;
 
-            // Attempt autoplay on load
-            audio.play().then(() => {
-                isPlaying = true;
-                toggleBtn.classList.add('playing');
-                toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            }).catch(() => {
-                isPlaying = false;
-                toggleBtn.classList.remove('playing');
-                toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
-            });
+            // Show toast with message
+            function showToast(msg, duration) {
+                duration = duration || 3000;
+                toastMsg.textContent = msg;
+                toast.classList.add('show');
+                clearTimeout(toast._hideTimer);
+                toast._hideTimer = setTimeout(function() {
+                    toast.classList.remove('show');
+                }, duration);
+            }
 
-            toggleBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
+            // Update button UI
+            function updateButtonUI(playing) {
+                if (playing) {
+                    toggleBtn.classList.add('playing');
+                    toggleBtn.querySelector('i').className = 'fas fa-pause';
+                } else {
+                    toggleBtn.classList.remove('playing');
+                    toggleBtn.querySelector('i').className = 'fas fa-play';
+                }
+            }
+
+            // Attempt to play audio
+            function attemptPlay(showToastOnFail) {
+                if (audio.readyState < 2) {
+                    // Audio not loaded yet, try loading
+                    audio.load();
+                }
+                const promise = audio.play();
+                if (promise !== undefined) {
+                    promise.then(function() {
+                        isPlaying = true;
+                        updateButtonUI(true);
+                        showToast('🎵 Music playing', 1500);
+                    }).catch(function(err) {
+                        isPlaying = false;
+                        updateButtonUI(false);
+                        if (showToastOnFail !== false) {
+                            showToast('👉 Tap play to start the music', 3000);
+                        }
+                        console.log('Autoplay blocked:', err);
+                    });
+                }
+                return promise;
+            }
+
+            // Toggle play/pause
+            function togglePlay() {
                 if (isPlaying) {
+                    // Pause
                     audio.pause();
                     isPlaying = false;
-                    toggleBtn.classList.remove('playing');
-                    toggleBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    updateButtonUI(false);
+                    showToast('⏸️ Paused', 1200);
                 } else {
-                    audio.play().then(() => {
-                        isPlaying = true;
-                        toggleBtn.classList.add('playing');
-                        toggleBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                    }).catch(() => {
-                        alert('Please click again to play the music.');
-                    });
+                    // Play
+                    attemptPlay(true);
+                }
+            }
+
+            // ---------- AUTOPLAY ON LOAD ----------
+            // Set volume to 50% for a pleasant experience
+            audio.volume = 0.5;
+
+            // First, try to autoplay immediately
+            setTimeout(function() {
+                attemptPlay(false);
+                autoplayAttempted = true;
+            }, 300);
+
+            // Also try again when user taps anywhere (for mobile browsers)
+            document.addEventListener('touchstart', function onFirstTouch() {
+                if (!isPlaying && autoplayAttempted) {
+                    attemptPlay(false);
+                }
+                // Remove after first touch to avoid spamming
+                document.removeEventListener('touchstart', onFirstTouch);
+            }, { once: true });
+
+            // Click handler for the toggle button
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                togglePlay();
+            });
+
+            // Handle audio errors
+            audio.addEventListener('error', function(e) {
+                console.warn('Audio error:', e);
+                // Try loading the fallback source again
+                if (audio.networkState === 3) { // NETWORK_NO_SOURCE
+                    showToast('⚠️ Audio source unavailable — tap play to retry', 4000);
+                    updateButtonUI(false);
+                    isPlaying = false;
                 }
             });
 
-            // Loop
-            audio.addEventListener('ended', function() {
-                audio.currentTime = 0;
-                audio.play();
+            // When audio is ready, if it's not playing but we want it to, try again
+            audio.addEventListener('canplaythrough', function() {
+                if (!isPlaying && autoplayAttempted) {
+                    attemptPlay(false);
+                }
             });
 
+            // When audio ends, loop it
+            audio.addEventListener('ended', function() {
+                audio.currentTime = 0;
+                if (isPlaying) {
+                    audio.play().catch(function() {});
+                }
+            });
+
+            // If the user interacts with the page in any way, try to play
+            document.addEventListener('click', function onAnyClick() {
+                if (!isPlaying && autoplayAttempted) {
+                    attemptPlay(false);
+                }
+            }, { once: true });
+
+            // ---------- KEYBOARD SHORTCUT: Space to toggle ----------
+            document.addEventListener('keydown', function(e) {
+                if (e.key === ' ' || e.key === 'Space') {
+                    if (document.activeElement && document.activeElement.tagName === 'INPUT') return;
+                    e.preventDefault();
+                    togglePlay();
+                }
+            });
+
+            console.log('🎵 Wedding music ready — auto-play attempted, tap the music button to toggle.');
         })();
     </script>
 </body>
